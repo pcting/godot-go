@@ -19,6 +19,7 @@ import (
 	"github.com/godot-go/godot-go/pkg/log"
 )
 
+// RegisterStateStruct holds global state.
 type RegisterStateStruct struct {
 	NativescriptHandle unsafe.Pointer
 	LanguageIndex      C.int
@@ -91,10 +92,10 @@ var (
 //
 // NOTE: Memory allocated in C is NOT managed by Go GC; therefore, gdnative#Free
 // must be called on the pointer to release the memory back to the OS.
-func AllocZeros(p_bytes int32) unsafe.Pointer {
-	m := Alloc(p_bytes)
+func AllocZeros(bytes int32) unsafe.Pointer {
+	m := Alloc(bytes)
 
-	C.memset(m, 0, C.size_t(p_bytes))
+	C.memset(m, 0, C.size_t(bytes))
 
 	return m
 }
@@ -103,10 +104,10 @@ func AllocZeros(p_bytes int32) unsafe.Pointer {
 //
 // NOTE: Memory allocated in C is NOT managed by Go GC; therefore, gdnative#Free
 // must be called on the pointer to release the memory back to the OS.
-func AllocCopy(src unsafe.Pointer, p_bytes int32) unsafe.Pointer {
-	m := Alloc(p_bytes)
+func AllocCopy(src unsafe.Pointer, bytes int32) unsafe.Pointer {
+	m := Alloc(bytes)
 
-	C.memcpy(m, src, C.size_t(p_bytes))
+	C.memcpy(m, src, C.size_t(bytes))
 
 	return m
 }

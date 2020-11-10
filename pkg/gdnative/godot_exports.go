@@ -208,7 +208,7 @@ func GodotNativescriptInit(handle unsafe.Pointer) {
 }
 
 // GodotNativescriptTerminate should be called from the exported nativescript_terminate function.
-func GodotNativescriptTerminate(handle unsafe.Pointer) {
+func GodotNativescriptTerminate(_ unsafe.Pointer) {
 	log.Debug("GodotNativescriptTerminate called")
 
 	for _, cb := range terminateNativescriptCallbacks {

@@ -110,14 +110,3 @@ type UserData int
 
 // UserDataMap is an identity map key on by NativeScriptClass.GetUserData()
 type UserDataMap map[UserData]NativeScriptClass
-
-// CreateFunc is a callback for Godot to call whenever a NativeScriptClass is
-// requested to be instantiated.
-type CreateFunc func(*GodotObject, MethodData) UserData
-
-// DestroyFunc is a callback for Godot to call whenever a NativeScriptClass is
-// destroyed.
-type DestroyFunc func(*GodotObject, MethodData, UserData)
-
-// FreeFunc is a callback to clean up CreateFunc and DestroyFunc.
-type FreeFunc func(MethodData)
