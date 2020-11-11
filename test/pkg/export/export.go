@@ -2,8 +2,9 @@ package export
 
 import "C"
 import (
-	"github.com/godot-go/godot-go/pkg/gdnative"
 	"unsafe"
+
+	"github.com/godot-go/godot-go/pkg/gdnative"
 )
 
 //export godot_gdnative_init
