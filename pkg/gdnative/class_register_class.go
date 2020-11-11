@@ -52,11 +52,6 @@ func RegisterClass(instance NativeScriptClass) {
 	// classType should hold the type: *MyCustomClassStruct
 	classType := reflect.TypeOf(instance)
 
-	// all classTypes should implement gdnative.NativeScriptClass
-	if !classType.Implements(nativeScriptClassType) {
-		log.Panic("class type must implement NativeScriptClass")
-	}
-
 	className := classType.Elem().Name()
 
 	if len(className) == 0 {
